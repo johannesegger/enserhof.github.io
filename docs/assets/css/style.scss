@@ -1,0 +1,18 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+#main-content {
+    float: none;
+    width: auto;
+}
+
+aside#sidebar {
+    float: none;
+    width: auto;
+    padding-left: 0;
+    text-align: center;
+    min-height: auto;
+    background: none;
+}
