@@ -3,6 +3,13 @@
 
 @import "{{ site.theme }}";
 
+header h1 {
+    width: auto;
+}
+header h2 {
+    width: auto;
+}
+
 #main-content {
     float: none;
     width: auto;
