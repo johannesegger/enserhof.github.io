@@ -2,22 +2,23 @@
 
 ## Tiere
 
-### Lilly
+### Lilly & Paula
+Unsere beiden Esel
 
-### Paula
+### Laika & Luna
+Mama-Pony und ihr Fohlen
 
-### Laika
+### Josephine & Rosi
+Unsere unzähmbaren Kühe
 
-### Luna
+### Hahn & Hühner
+Ein Hahn und seine 13 Hühner
 
-### Josephine
+### Minki & Quetschi
+Hasenmama und -papa
 
-### Rosi
+### Maxi
+Unser Mäusefänger
 
-### Hahn und Hühner
-
-### Hasen
-
-### Katze
-
-### Hund
+### Puma
+Hofwächter ohne Wachfunktion
