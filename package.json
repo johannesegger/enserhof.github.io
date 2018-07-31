@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "moment": "^2.22.2",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "remotedev": "^0.2.7"
@@ -25,6 +26,7 @@
     "css-loader": "^0.28.7",
     "fable-loader": "^1.1.2",
     "fable-utils": "^1.0.6",
+    "file-loader": "^1.1.11",
     "loglevel": "^1.5.0",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",

@@ -8,5 +8,8 @@ nuget Fable.Core
 nuget Fable.Elmish.React
 nuget Fable.Elmish.Browser
 nuget Fable.Elmish.Debugger
+nuget Fulma
+github Prolucid/fable-import-momentjs Fable.Helpers.Moment.fs
+github Prolucid/fable-import-momentjs Fable.Import.Moment.fs
 
 clitool dotnet-fable

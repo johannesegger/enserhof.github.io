@@ -3,66 +3,49 @@ module App.View
 open Elmish
 open Elmish.Browser.Navigation
 open Elmish.Browser.UrlParser
-open Fable.Core
 open Fable.Core.JsInterop
-open Fable.Import
-open Fable.Import.Browser
-open Types
 open App.State
+open App.Types
 open Global
-
-importAll "../sass/main.sass"
-
 open Fable.Helpers.React
 open Fable.Helpers.React.Props
+open Fulma
 
-let menuItem label page currentPage =
-    li
-      [ ]
-      [ a
-          [ classList [ "is-active", page = currentPage ]
-            Href (toHash page) ]
-          [ str label ] ]
+importAll "../node_modules/bulma/bulma.sass"
+importAll "../sass/main.sass"
+
+let menuItem page currentPage =
+  Navbar.Item.a
+    [ Navbar.Item.IsActive (page = currentPage)
+      Navbar.Item.Props [ Href (toHash page) ] ]
+    [ str (toString page) ]
 
 let menu currentPage =
-  aside
-    [ ClassName "menu" ]
-    [ p
-        [ ClassName "menu-label" ]
-        [ str "General" ]
-      ul
-        [ ClassName "menu-list" ]
-        [ menuItem "Home" Home currentPage
-          menuItem "Counter sample" Counter currentPage
-          menuItem "About" Page.About currentPage ] ]
+  Navbar.navbar [ Navbar.Color IsLight ]
+    [ for page in allPages -> menuItem page currentPage ]
 
 let root model dispatch =
-
   let pageHtml =
     function
-    | Page.About -> Info.View.root
-    | Counter -> Counter.View.root model.counter (CounterMsg >> dispatch)
-    | Home -> Home.View.root model.home (HomeMsg >> dispatch)
-
-  div
-    []
-    [ div
-        [ ClassName "navbar-bg" ]
-        [ div
-            [ ClassName "container" ]
-            [ Navbar.View.root ] ]
-      div
-        [ ClassName "section" ]
-        [ div
-            [ ClassName "container" ]
-            [ div
-                [ ClassName "columns" ]
-                [ div
-                    [ ClassName "column is-3" ]
-                    [ menu model.currentPage ]
-                  div
-                    [ ClassName "column" ]
-                    [ pageHtml model.currentPage ] ] ] ] ]
+    | Page.Aktivitaeten -> Home.View.root
+    | UeberDenHof -> UeberDenHof.View.root
+  
+  div []
+    [ Hero.hero [ ]
+        [ Hero.body [ ]
+            [ Container.container [ Container.IsFluid ]
+                [ Heading.h2
+                    [ Heading.Is4
+                      Heading.IsSubtitle
+                      Heading.Modifiers [ Modifier.TextColor IsLight ] ]
+                    [ str "Herzlich Willkommen am" ]
+                  Heading.h1 [ Heading.Modifiers [ Modifier.TextColor IsWhite ] ]
+                    [ str "Enserhof z'Ehrndorf" ] ] ] ]
+      menu model.CurrentPage
+      Section.section [ Section.CustomClass "main-section" ]
+        [ Container.container [ ]
+            (pageHtml model.CurrentPage) ]
+    ]
 
 open Elmish.React
 open Elmish.Debug

@@ -1,22 +1,40 @@
-// Colors
-$purple: #7a325d
-$primary: $purple
-$black: #202020
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter')
 
-@import '../node_modules/bulma/bulma'
+/* LAYOUT STYLES */
+body
+  font-family: 'Helvetica Neue', Helvetica, Arial, serif
+  font-size: 15px
+  font-weight: 400
+  line-height: 1.5
+  color: #666
+  //background: #fafafa url(../images/body-bg.jpg) 0 0 repeat
 
-.navbar-bg
-  background-color: $black
-  .nav
-    background-color: $black
-  .title
-    color: #686868
-    font-weight: 600
+section.hero
+  padding-top: 40px
+  padding-bottom: 40px
+  background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x
+  border-bottom: solid 1px #275da1
 
-.twitter
-  color: #55acee !important // Override bulma
-  border-color: #55acee
+section.hero,
+.main-section h1,
+.main-section h2,
+.main-section h3
+  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif
 
-.github
-  color: $black !important // Override bulma
-  border-color: $black
+.main-section h1:before
+  padding-right: 0.3em
+  margin-left: -0.9em
+  color: #9ddcff
+  content: "/"
+
+.main-section h2:before
+  padding-right: 0.3em
+  margin-left: -1.5em
+  content: "//"
+  color: #9ddcff
+
+.main-section h3:before
+  padding-right: 0.3em
+  margin-left: -2em
+  content: "///"
+  color: #9ddcff

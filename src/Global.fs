@@ -1,12 +1,19 @@
 module Global
 
-type Page =
-  | Home
-  | Counter
-  | About
+open Microsoft.FSharp.Reflection
 
-let toHash page =
-  match page with
-  | About -> "#about"
-  | Counter -> "#counter"
-  | Home -> "#home"
+type Page =
+  | Aktivitaeten
+  | UeberDenHof
+
+let allPages =
+  let cases = FSharpType.GetUnionCases typeof<Page>
+  [ for c in cases -> FSharpValue.MakeUnion(c, [| |]) :?> Page ]
+
+let toHash = function
+  | Aktivitaeten -> "#aktivitaeten"
+  | UeberDenHof -> "#ueber-den-hof"
+
+let toString = function
+  | Aktivitaeten -> "Aktivitäten"
+  | UeberDenHof -> "Über den Hof"
