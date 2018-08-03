@@ -4,7 +4,7 @@ Param(
 
 $buildOutputDir = ".\build-tmp"
 
-git worktree add $buildOutputDir gh-pages
+git worktree add $buildOutputDir master
 
 Push-Location src
 dotnet fable yarn-build
