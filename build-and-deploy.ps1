@@ -7,6 +7,8 @@ $buildOutputDir = ".\build-tmp"
 git worktree add $buildOutputDir master
 
 Push-Location src
+yarn install --frozen-lockfile
+dotnet restore
 dotnet fable yarn-build
 Pop-Location
 
