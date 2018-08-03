@@ -20,5 +20,5 @@ let root =
           [ str "Stallarbeit erledigen" ]
         span []
           [ str "Nächste Stallzeit: "
-            b [] [ str (formatTime (2018, 08, 03) (08, 30)) ] ] ] ]
+            b [] [ str (formatTime (2018, 08, 06) (08, 30)) ] ] ] ]
   
