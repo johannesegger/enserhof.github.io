@@ -1,7 +1,9 @@
 module Home.View
 
+open Fable.Core.JsInterop
 open Fable.Helpers.Moment
 open Fable.Helpers.React
+open Fable.Helpers.React.Props
 open Fulma
 
 moment.locale "de" |> ignore
@@ -18,8 +20,11 @@ let root =
           [ str "Aktivitäten" ]
         Heading.h2 [ Heading.Is4 ]
           [ str "Stallarbeit erledigen" ]
-        p []
-          [ str "Ihr habt ab nun die Möglichkeit, mit uns in den Stall zu gehen."
+        Content.content []
+          [ Image.image
+              [ Image.Modifiers [ Modifier.TextAlignment (Screen.All, TextAlignment.Left) ] ]
+              [ img [ Src (importAll "../../images/stallarbeit.jpg"); Style [ MaxWidth "640px" ] ] ]
+            str "Ihr habt ab nun die Möglichkeit, mit uns in den Stall zu gehen."
             br []
             str "Wir reinigen gemeinsam die Koppel und die Ställe, pfücken Futter für die Hasen, heben gemeinsam frische Eier ab und füttern die Esel, Kühe und Ponys mit Heu."
             br []
