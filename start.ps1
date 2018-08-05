@@ -1,3 +1,7 @@
 Push-Location .\src
-dotnet fable yarn-start
-Pop-Location
+try {
+    dotnet fable yarn-start
+}
+finally {
+    Pop-Location
+}
