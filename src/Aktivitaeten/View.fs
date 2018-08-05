@@ -18,7 +18,14 @@ let root =
           [ str "Aktivitäten" ]
         Heading.h2 [ Heading.Is4 ]
           [ str "Stallarbeit erledigen" ]
-        span []
-          [ str "Nächste Stallzeit: "
+        p []
+          [ str "Ihr habt ab nun die Möglichkeit, mit uns in den Stall zu gehen."
+            br []
+            str "Wir reinigen gemeinsam die Koppel und die Ställe, pfücken Futter für die Hasen, heben gemeinsam frische Eier ab und füttern die Esel, Kühe und Ponys mit Heu."
+            br []
+            str "Das Stallgehen dauert ca. eine Stunde und findet bei jeder Witterung statt."
+            str "Wir freuen uns, wenn ihr einfach mal vorbei schaut."
+            br []
+            str "Nächste Stallzeit: "
             b [] [ str (formatTime (2018, 08, 06) (08, 30)) ] ] ] ]
   
