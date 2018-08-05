@@ -1,7 +1,3 @@
-Param(
-  [Parameter(Mandatory=$True)][string]$commitMessage
-)
-
 $buildOutputDir = ".\build-tmp"
 
 git worktree add $buildOutputDir master
@@ -14,9 +10,11 @@ Pop-Location
 
 Copy-Item -Force .\public\** $buildOutputDir
 
+$commitHash = git rev-parse HEAD
+
 Push-Location $buildOutputDir
 git add .
-git commit -m "$commitMessage"
+git commit -m "Build $commitHash"
 git push
 Pop-Location
 
