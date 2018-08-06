@@ -33,5 +33,5 @@ let root =
                 br []
                 str "Wir freuen uns, wenn ihr einfach mal vorbei schaut." ]
             str "Nächste Stallzeit: "
-            b [] [ str (formatTime (2018, 08, 06) (08, 30)) ] ] ] ]
+            b [] [ str (formatTime (2018, 08, 08) (08, 30)) ] ] ] ]
   
