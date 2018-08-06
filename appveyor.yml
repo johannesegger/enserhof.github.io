@@ -19,3 +19,9 @@ build_script:
 
 deploy_script:
   - ps: .\deploy.ps1
+
+notifications:
+  - provider: Email
+    to:
+    - j.egger@posteo.at
+    on_build_success: false
