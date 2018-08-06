@@ -13,18 +13,23 @@ let pageParser: Parser<Page->Page,Page> =
     map Aktivitaeten (s "aktivitaeten")
   ]
 
-let setPageTitle page =
-  Fable.Import.Browser.window.document.title <- toString page |> sprintf "%s | Enserhof z'Ehrndorf"
+let urlUpdate (page: Option<Page>) model =
+  let (model', cmd') =
+    page
+    |> FSharp.Core.Option.map (fun page ->
+      { model with CurrentPage = page }, Cmd.none
+    )
+    |> FSharp.Core.Option.defaultWith (fun () ->
+      console.error("Error parsing url")
+      model, Navigation.modifyUrl (toHash model.CurrentPage)
+    )
+  
+  Fable.Import.Browser.window.document.title <- toString model'.CurrentPage |> sprintf "%s | Enserhof z'Ehrndorf"
 
-let urlUpdate (result: Option<Page>) model =
-  match result with
-  | None ->
-    console.error("Error parsing url")
-    setPageTitle model.CurrentPage
-    model, Navigation.modifyUrl (toHash model.CurrentPage)
-  | Some page ->
-      setPageTitle page
-      { model with CurrentPage = page }, []
+  Fable.Import.Globals.ga.Invoke("set", "page", toHash model'.CurrentPage);
+  Fable.Import.Globals.ga.Invoke("send", "pageview")
+
+  model', cmd'
 
 let init result =
   urlUpdate result { CurrentPage = Aktivitaeten }

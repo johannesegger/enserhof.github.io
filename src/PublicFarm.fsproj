@@ -6,6 +6,7 @@
     <Compile Include="Global.fs" />
     <Compile Include="..\paket-files\Prolucid\fable-import-momentjs\Fable.Import.Moment.fs" />
     <Compile Include="..\paket-files\Prolucid\fable-import-momentjs\Fable.Helpers.Moment.fs" />
+    <Compile Include="..\paket-files\Prolucid\fable-ga\src\Fable.GA.fs" />
     <Compile Include="UeberDenHof/View.fs" />
     <Compile Include="Aktivitaeten/View.fs" />
     <Compile Include="Navbar/View.fs" />
