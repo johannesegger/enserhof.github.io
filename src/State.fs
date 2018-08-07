@@ -26,8 +26,7 @@ let urlUpdate (page: Option<Page>) model =
   
   Fable.Import.Browser.window.document.title <- toString model'.CurrentPage |> sprintf "%s | Enserhof z'Ehrndorf"
 
-  Fable.Import.Globals.ga.Invoke("set", "page", toUrl model'.CurrentPage);
-  Fable.Import.Globals.ga.Invoke("send", "pageview")
+  GTag.setPage GTag.trackingId (toUrl model'.CurrentPage)
 
   model', cmd'
 

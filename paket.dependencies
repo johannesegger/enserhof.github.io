@@ -11,6 +11,5 @@ nuget Fable.Elmish.Debugger
 nuget Fulma
 github Prolucid/fable-import-momentjs Fable.Helpers.Moment.fs
 github Prolucid/fable-import-momentjs Fable.Import.Moment.fs
-github Prolucid/fable-ga src/Fable.GA.fs
 
 clitool dotnet-fable

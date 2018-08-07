@@ -14,7 +14,7 @@ let toHash = function
   | Aktivitaeten -> "#aktivitaeten"
   | UeberDenHof -> "#ueber-den-hof"
 
-let toUrl = toHash >> (fun s -> s.Replace("#", "/") + ".html")
+let toUrl = toHash >> fun s -> s.Replace("#", "/")
 
 let toString = function
   | Aktivitaeten -> "Aktivitäten"
