@@ -28,7 +28,7 @@ let root model dispatch =
   let pageHtml =
     function
     | Aktivitaeten -> Home.View.root
-    | UeberDenHof -> UeberDenHof.View.root
+    | UeberDenHof -> UeberDenHof.View.root model.UeberDenHof (UeberDenHofMsg >> dispatch)
     | Lageplan -> Lageplan.View.root
   
   div []

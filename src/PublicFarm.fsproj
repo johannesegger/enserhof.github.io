@@ -7,6 +7,8 @@
     <Compile Include="..\paket-files\Prolucid\fable-import-momentjs\Fable.Helpers.Moment.fs" />
     <Compile Include="GTag.fs" />
     <Compile Include="Global.fs" />
+    <Compile Include="UeberDenHof/Types.fs" />
+    <Compile Include="UeberDenHof/State.fs" />
     <Compile Include="UeberDenHof/View.fs" />
     <Compile Include="Aktivitaeten/View.fs" />
     <Compile Include="Lageplan/View.fs" />
