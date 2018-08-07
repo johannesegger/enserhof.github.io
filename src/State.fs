@@ -11,6 +11,7 @@ let pageParser: Parser<Page->Page,Page> =
   oneOf [
     map UeberDenHof (s "ueber-den-hof")
     map Aktivitaeten (s "aktivitaeten")
+    map Lageplan (s "lageplan")
   ]
 
 let urlUpdate (page: Option<Page>) model =

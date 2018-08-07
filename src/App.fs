@@ -27,8 +27,9 @@ let menu currentPage =
 let root model dispatch =
   let pageHtml =
     function
-    | Page.Aktivitaeten -> Home.View.root
+    | Aktivitaeten -> Home.View.root
     | UeberDenHof -> UeberDenHof.View.root
+    | Lageplan -> Lageplan.View.root
   
   div []
     [ Hero.hero [ ]

@@ -9,6 +9,7 @@
     <Compile Include="Global.fs" />
     <Compile Include="UeberDenHof/View.fs" />
     <Compile Include="Aktivitaeten/View.fs" />
+    <Compile Include="Lageplan/View.fs" />
     <Compile Include="Navbar/View.fs" />
     <Compile Include="Types.fs" />
     <Compile Include="State.fs" />
