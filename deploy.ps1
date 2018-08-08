@@ -2,7 +2,7 @@ $buildOutputDir = ".\build-tmp"
 
 git worktree add $buildOutputDir master
 Remove-Item $buildOutputDir -Exclude .git -Recurse -Force
-Copy-Item -Force .\public\** $buildOutputDir
+Copy-Item .\public\** $buildOutputDir -Force -Recurse
 $commitHash = git rev-parse HEAD
 
 Push-Location $buildOutputDir
