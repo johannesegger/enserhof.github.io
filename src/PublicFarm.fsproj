@@ -10,6 +10,8 @@
     <Compile Include="UeberDenHof/Types.fs" />
     <Compile Include="UeberDenHof/State.fs" />
     <Compile Include="UeberDenHof/View.fs" />
+    <Compile Include="Aktivitaeten/Types.fs" />
+    <Compile Include="Aktivitaeten/State.fs" />
     <Compile Include="Aktivitaeten/View.fs" />
     <Compile Include="Lageplan/View.fs" />
     <Compile Include="Navbar/View.fs" />

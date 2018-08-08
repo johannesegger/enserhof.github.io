@@ -32,16 +32,27 @@ let urlUpdate (page: Option<Page>) model =
   model', cmd'
 
 let init result =
+  let aktivitaeten, aktivitaetenCmd = Aktivitaeten.State.init
   let ueberDenHof, ueberDenHofCmd = UeberDenHof.State.init
   let model = {
     CurrentPage = Aktivitaeten
+    Aktivitaeten = aktivitaeten
     UeberDenHof = ueberDenHof
   }
-  let model', cmd' = urlUpdate result model
-  model', Cmd.batch [ cmd'; Cmd.map UeberDenHofMsg ueberDenHofCmd ]
+  let model', cmd = urlUpdate result model
+  let cmd' =
+    Cmd.batch [
+      cmd
+      Cmd.map AktivitaetenMsg aktivitaetenCmd
+      Cmd.map UeberDenHofMsg ueberDenHofCmd
+    ]
+  model', cmd'
 
 let update msg model =
   match msg with
+  | AktivitaetenMsg msg' ->
+    let subModel, subCmd = Aktivitaeten.State.update msg' model.Aktivitaeten
+    { model with Aktivitaeten = subModel }, Cmd.map AktivitaetenMsg subCmd
   | UeberDenHofMsg msg' ->
     let subModel, subCmd = UeberDenHof.State.update msg' model.UeberDenHof
     { model with UeberDenHof = subModel }, Cmd.map UeberDenHofMsg subCmd
