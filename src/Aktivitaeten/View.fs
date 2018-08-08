@@ -6,8 +6,6 @@ open Fable.Helpers.React
 open Fable.Helpers.React.Props
 open Fulma
 
-moment.locale "de" |> ignore
-
 let root =
   let formatTime (year, month, day) (hour, minute) =
     let dateTime =
@@ -34,4 +32,3 @@ let root =
                 str "Wir freuen uns, wenn ihr einfach mal vorbei schaut." ]
             str "Nächste Stallzeit: "
             b [] [ str (formatTime (2018, 08, 10) (08, 30)) ] ] ] ]
-  

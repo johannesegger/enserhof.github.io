@@ -2,6 +2,8 @@ module Global
 
 open Microsoft.FSharp.Reflection
 
+Fable.Helpers.Moment.moment.locale "de" |> ignore
+
 type Page =
   | Aktivitaeten
   | UeberDenHof
