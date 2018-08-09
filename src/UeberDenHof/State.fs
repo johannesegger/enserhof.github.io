@@ -3,7 +3,7 @@ module UeberDenHof.State
 open Elmish
 open Types
 
-let init : Model * Cmd<Msg> =
+let init =
   { OpenMenus = Set.empty }, []
 
 let update msg model =
