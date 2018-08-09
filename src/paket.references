@@ -1,4 +1,5 @@
 FSharp.Core
+Elmish.Toastr
 Fable.Core
 Fable.Elmish.React
 Fable.Elmish.Browser

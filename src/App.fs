@@ -30,6 +30,7 @@ let root model dispatch =
     | Aktivitaeten -> Aktivitaeten.View.root model.Aktivitaeten
     | UeberDenHof -> UeberDenHof.View.root model.UeberDenHof (UeberDenHofMsg >> dispatch)
     | Lageplan -> Lageplan.View.root
+    | Administration -> Administration.View.root model.Administration (AdministrationMsg >> dispatch)
   
   div []
     [ Hero.hero [ ]

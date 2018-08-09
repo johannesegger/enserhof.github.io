@@ -12,6 +12,7 @@ let pageParser: Parser<Page->Page,Page> =
     map UeberDenHof (s "ueber-den-hof")
     map Aktivitaeten (s "aktivitaeten")
     map Lageplan (s "lageplan")
+    map Administration (s "administration")
   ]
 
 let urlUpdate (page: Option<Page>) model =
@@ -34,10 +35,12 @@ let urlUpdate (page: Option<Page>) model =
 let init result =
   let aktivitaeten, aktivitaetenCmd = Aktivitaeten.State.init
   let ueberDenHof, ueberDenHofCmd = UeberDenHof.State.init
+  let administration, administrationCmd = Administration.State.init
   let model = {
     CurrentPage = Aktivitaeten
     Aktivitaeten = aktivitaeten
     UeberDenHof = ueberDenHof
+    Administration = administration
   }
   let model', cmd = urlUpdate result model
   let cmd' =
@@ -45,6 +48,7 @@ let init result =
       cmd
       Cmd.map AktivitaetenMsg aktivitaetenCmd
       Cmd.map UeberDenHofMsg ueberDenHofCmd
+      Cmd.map AdministrationMsg administrationCmd
     ]
   model', cmd'
 
@@ -56,3 +60,6 @@ let update msg model =
   | UeberDenHofMsg msg' ->
     let subModel, subCmd = UeberDenHof.State.update msg' model.UeberDenHof
     { model with UeberDenHof = subModel }, Cmd.map UeberDenHofMsg subCmd
+  | AdministrationMsg msg' ->
+    let subModel, subCmd = Administration.State.update msg' model.Administration
+    { model with Administration = subModel }, Cmd.map AdministrationMsg subCmd

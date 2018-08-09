@@ -15,7 +15,8 @@
     "moment": "^2.22.2",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
-    "remotedev": "^0.2.7"
+    "remotedev": "^0.2.7",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
