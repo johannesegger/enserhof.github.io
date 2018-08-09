@@ -13,6 +13,9 @@ type Page =
 let allPages =
   let cases = FSharpType.GetUnionCases typeof<Page>
   [ for c in cases -> FSharpValue.MakeUnion(c, [| |]) :?> Page ]
+
+let publicPages =
+  allPages
   |> List.except [ Administration ]
 
 let toHash = function

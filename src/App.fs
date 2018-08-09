@@ -20,9 +20,9 @@ let menuItem page currentPage =
       Navbar.Item.Props [ Href (toHash page) ] ]
     [ str (toString page) ]
 
-let menu currentPage =
+let menu pages currentPage =
   Navbar.navbar [ Navbar.Color IsLight ]
-    [ for page in allPages -> menuItem page currentPage ]
+    [ for page in pages -> menuItem page currentPage ]
 
 let root model dispatch =
   let pageHtml =
@@ -31,7 +31,14 @@ let root model dispatch =
     | UeberDenHof -> UeberDenHof.View.root model.UeberDenHof (UeberDenHofMsg >> dispatch)
     | Lageplan -> Lageplan.View.root
     | Administration -> Administration.View.root model.Administration (AdministrationMsg >> dispatch)
-  
+
+  let hasGitHubAccessToken = model.Administration.GitHubAccessToken <> ""
+  let currentPageIsNotPublic = publicPages |> List.contains model.CurrentPage |> not
+  let pages =
+    if hasGitHubAccessToken || currentPageIsNotPublic
+    then allPages
+    else publicPages
+
   div []
     [ Hero.hero [ ]
         [ Hero.body [ ]
@@ -43,7 +50,7 @@ let root model dispatch =
                     [ str "Herzlich Willkommen am" ]
                   Heading.h1 [ Heading.Modifiers [ Modifier.TextColor IsWhite ] ]
                     [ str "Enserhof z'Ehrndorf" ] ] ] ]
-      menu model.CurrentPage
+      menu pages model.CurrentPage
       Section.section [ Section.CustomClass "main-section" ]
         [ Container.container [ ]
             (pageHtml model.CurrentPage) ]
