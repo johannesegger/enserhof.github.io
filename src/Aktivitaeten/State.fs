@@ -3,13 +3,14 @@ module Aktivitaeten.State
 open System
 open Elmish
 open Types
-open Fable.PowerPack
 open Fable.PowerPack.Fetch
+
+let rand = Random()
 
 let init : Model * Cmd<Msg> =
   let loadStallzeitenCmd =
     Cmd.ofPromise
-      (fetchAs<DateTime list> "/api/stallzeiten")
+      (fetchAs<DateTime list> (sprintf "/api/stallzeiten?rand=%f" (rand.NextDouble())))
       []
       LoadStallzeitenSuccess
       (HttpError >> LoadStallzeitenError)
