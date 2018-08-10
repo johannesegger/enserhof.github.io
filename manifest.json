@@ -13,7 +13,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "?utm_source=a2hs",
+  "start_url": "index.html?utm_source=a2hs",
   "scope": "/enserhof.github.io/",
   "background_color": "#3179cd",
   "display": "standalone",
