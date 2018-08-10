@@ -13,9 +13,14 @@
       "sizes": "512x512"
     }
   ],
+<<<<<<< HEAD
   "start_url": "index.html?utm_source=a2hs",
-  "background_color": "#3179cd",
   "scope": "/enserhof.github.io/",
+  "background_color": "#3273dc",
+=======
+  "start_url": "/?utm_source=a2hs",
+  "background_color": "#3179cd",
+>>>>>>> 891f153... Update theme color
   "display": "standalone",
   "theme_color": "#3179cd"
 }
