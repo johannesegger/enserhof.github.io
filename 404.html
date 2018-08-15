@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="de-AT">
 <head>
+  <script>
+const lastSlashIndex = document.location.pathname.lastIndexOf("/") + 1;
+document.location.href = document.location.pathname.substring(0, lastSlashIndex) + "#" + document.location.pathname.substring(lastSlashIndex);
+  </script>
 </head>
 <body>
   <h1>Not found</h1>
